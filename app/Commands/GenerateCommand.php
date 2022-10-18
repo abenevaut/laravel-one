@@ -32,18 +32,21 @@ class GenerateCommand extends Command
      */
     public function handle()
     {
-        if (!is_dir(base_path('dist'))) {
+        if (!is_dir(getcwd() . DIRECTORY_SEPARATOR . 'dist')) {
             mkdir(base_path('dist'));
         }
 
         $files = array_merge(
-            glob(base_path('content/*.yml')),
-            glob(base_path('content/**/*.yml'))
+            glob(getcwd() . DIRECTORY_SEPARATOR . 'content/*.yml'),
+            glob(getcwd() . DIRECTORY_SEPARATOR . 'content/**/*.yml'),
         );
+
+        if (count($files) === 0) {
+            return self::FAILURE;
+        }
 
         foreach ($files as $file) {
             $content = Yaml::parse(file_get_contents($file));
-
             $dirPath = Str::replace('content', 'dist', dirname($file));
 
             if (!is_dir($dirPath)) {
@@ -57,6 +60,8 @@ class GenerateCommand extends Command
 
             file_put_contents(base_path("dist/{$distPath}"), $page);
         }
+
+        return self::SUCCESS;
     }
 
     /**
