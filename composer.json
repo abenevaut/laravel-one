@@ -1,0 +1,53 @@
+{
+    "name": "abenevaut/laravel-one",
+    "description": "The Laravel One static web pages generator.",
+    "keywords": ["framework", "laravel", "laravel one", "generator", "cli"],
+    "homepage": "https://laravel-one.abenevaut.dev",
+    "type": "project",
+    "license": "GPL-3.0-only",
+    "support": {
+        "issues": "https://github.com/abenevaut/opensource/issues",
+        "source": "https://github.com/abenevaut/opensource"
+    },
+    "authors": [
+        {
+            "name": "Antoine Benevaut",
+            "email": "me@abenevaut.dev"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "illuminate/view": "^9.0",
+        "nunomaduro/termwind": "^1.14",
+        "symfony/yaml": "^6.1"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.2",
+        "laravel-zero/framework": "^9.2",
+        "mockery/mockery": "^1.4.4",
+        "pestphp/pest": "^1.21.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "bin": ["builds/laravel-one"]
+}
