@@ -3,7 +3,6 @@
 namespace App\Commands;
 
 use Illuminate\Console\Scheduling\Schedule;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
 use LaravelZero\Framework\Commands\Command;
@@ -32,8 +31,15 @@ class GenerateCommand extends Command
      */
     public function handle()
     {
+        config()->set('view.compiled', $this->path('.cache'));
+        config()->set('view.paths', [$this->path('theme')]);
+
         if (!is_dir($this->path('dist'))) {
             mkdir($this->path('dist'));
+        }
+
+        if (!is_dir($this->path('.cache'))) {
+            mkdir($this->path('.cache'));
         }
 
         $files = array_merge(
@@ -77,6 +83,6 @@ class GenerateCommand extends Command
 
     private function path($path)
     {
-        return getenv('PWD') . DIRECTORY_SEPARATOR . $path;
+        return getcwd() . DIRECTORY_SEPARATOR . $path;
     }
 }
