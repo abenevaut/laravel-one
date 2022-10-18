@@ -33,7 +33,7 @@ class GenerateCommand extends Command
     public function handle()
     {
         if (!is_dir(getcwd() . DIRECTORY_SEPARATOR . 'dist')) {
-            mkdir(base_path('dist'));
+            mkdir(getcwd() . DIRECTORY_SEPARATOR . 'dist');
         }
 
         $files = array_merge(
@@ -53,12 +53,12 @@ class GenerateCommand extends Command
                 mkdir($dirPath, 0777, true);
             }
 
-            $distPath = Str::remove(base_path('content/'), $file);
+            $distPath = Str::remove(getcwd() . DIRECTORY_SEPARATOR . 'content/', $file);
             $distPath = Str::replace('yml', 'html', $distPath);
 
             $page = View::make($content['view'], $content['data']);
 
-            file_put_contents(base_path("dist/{$distPath}"), $page);
+            file_put_contents(getcwd() . DIRECTORY_SEPARATOR . "dist/{$distPath}", $page);
         }
 
         return self::SUCCESS;
