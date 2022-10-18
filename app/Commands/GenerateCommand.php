@@ -32,13 +32,13 @@ class GenerateCommand extends Command
      */
     public function handle()
     {
-        if (!is_dir(getcwd() . DIRECTORY_SEPARATOR . 'dist')) {
-            mkdir(getcwd() . DIRECTORY_SEPARATOR . 'dist');
+        if (!is_dir($this->path('dist'))) {
+            mkdir($this->path('dist'));
         }
 
         $files = array_merge(
-            glob(getcwd() . DIRECTORY_SEPARATOR . 'content/*.yml'),
-            glob(getcwd() . DIRECTORY_SEPARATOR . 'content/**/*.yml'),
+            glob($this->path('content/*.yml')),
+            glob($this->path('content/**/*.yml')),
         );
 
         if (count($files) === 0) {
@@ -53,12 +53,12 @@ class GenerateCommand extends Command
                 mkdir($dirPath, 0777, true);
             }
 
-            $distPath = Str::remove(getcwd() . DIRECTORY_SEPARATOR . 'content/', $file);
+            $distPath = Str::remove($this->path('content/'), $file);
             $distPath = Str::replace('yml', 'html', $distPath);
 
             $page = View::make($content['view'], $content['data']);
 
-            file_put_contents(getcwd() . DIRECTORY_SEPARATOR . "dist/{$distPath}", $page);
+            file_put_contents($this->path("dist/{$distPath}"), $page);
         }
 
         return self::SUCCESS;
@@ -73,5 +73,10 @@ class GenerateCommand extends Command
     public function schedule(Schedule $schedule)
     {
         // $schedule->command(static::class)->everyMinute();
+    }
+
+    private function path($path)
+    {
+        return getenv('PWD') . DIRECTORY_SEPARATOR . $path;
     }
 }
