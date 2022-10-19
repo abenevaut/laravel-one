@@ -62,7 +62,7 @@ class GenerateCommand extends Command
             $distPath = Str::remove($this->path('content/'), $file);
             $distPath = Str::replace('yml', 'html', $distPath);
 
-            $page = View::make($content['view'], $content['data']);
+            $page = View::make($content['view'], $content);
 
             file_put_contents($this->path("dist/{$distPath}"), $page);
         }
