@@ -17,8 +17,11 @@
     ],
     "require": {
         "php": "^8.0",
+        "illuminate/http": "^9.36",
+        "illuminate/routing": "^9.36",
         "illuminate/view": "^9.0",
         "nunomaduro/termwind": "^1.14",
+        "spatie/laravel-sitemap": "^6.2",
         "symfony/yaml": "^6.1"
     },
     "require-dev": {

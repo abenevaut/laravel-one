@@ -68,6 +68,8 @@ return [
 
     'providers' => [
         App\Providers\AppServiceProvider::class,
+        Illuminate\Routing\RoutingServiceProvider::class,
+        Spatie\Sitemap\SitemapServiceProvider::class,
     ],
 
 ];

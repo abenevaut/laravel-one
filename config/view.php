@@ -2,6 +2,7 @@
 
 return [
     'paths' => [
+        base_path('resources/views'),
         base_path('theme'),
     ],
 

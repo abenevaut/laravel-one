@@ -2,10 +2,12 @@
 
 namespace App\Commands;
 
+use App\Services\Sitemap;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
 use LaravelZero\Framework\Commands\Command;
+use Spatie\Sitemap\Tags\Url;
 use Symfony\Component\Yaml\Yaml;
 
 class GenerateCommand extends Command
@@ -15,7 +17,8 @@ class GenerateCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'generate';
+    protected $signature = 'generate
+        {url : Website base URL, ctarting with "http://"}';
 
     /**
      * The description of the command.
@@ -32,7 +35,7 @@ class GenerateCommand extends Command
     public function handle()
     {
         config()->set('view.compiled', $this->path('.cache'));
-        config()->set('view.paths', [$this->path('theme')]);
+        config()->set('view.paths', array_merge(config('view.paths'), [$this->path('theme')]));
 
         if (!is_dir($this->path('dist'))) {
             mkdir($this->path('dist'));
@@ -51,6 +54,8 @@ class GenerateCommand extends Command
             return self::FAILURE;
         }
 
+        $sitemap = Sitemap::create();
+
         foreach ($files as $file) {
             $content = Yaml::parse(file_get_contents($file));
             $dirPath = Str::replace('content', 'dist', dirname($file));
@@ -65,7 +70,15 @@ class GenerateCommand extends Command
             $page = View::make($content['view'], $content);
 
             file_put_contents($this->path("dist/{$distPath}"), $page);
+
+            $url = URL::create($this->argument('url') . "/{$distPath}")
+                ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
+                ->setPriority(0.1)
+            ;
+            $sitemap->add($url);
         }
+
+        $sitemap->writeToFile($this->path("dist/sitemap.xml"));
 
         return self::SUCCESS;
     }
