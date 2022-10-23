@@ -1,0 +1,7 @@
+view: home
+language: en
+seo:
+  title: laravel-one documentation
+  description: laravel-one, tool to generate static webpages with blade
+  keywords: laravel-one, static webpages, sitemap, blade php
+  author: Antoine Benevaut

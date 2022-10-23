@@ -1,0 +1,45 @@
+name: laravel-one-ghpages
+
+on:
+  push:
+    branches: [ master ]
+
+env:
+  php_version: 8.1
+
+jobs:
+
+  release:
+    runs-on: ubuntu-latest
+    if: contains(github.ref, 'refs/heads/master')
+    concurrency:
+      group: laravel-one-ghpages
+      cancel-in-progress: false
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Initialize PHP ${{ env.php_version }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ env.php_version }}
+      - name: Configure Composer cache
+        uses: actions/cache@v2
+        with:
+          path: ~/vendor
+          key: ${{ runner.os }}-node-php_${{ env.php_version }}-${{ hashFiles('**/composer.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-php_${{ env.php_version }}-
+      - name: Composer install
+        if: steps.composer-cache.outputs.cache-hit != 'true'
+        run: composer install -o --no-interaction --prefer-dist
+      - name: Generate static pages
+        run: |
+          composer global require abenevaut/laravel-one
+          laravel-one generate https://laravel-one.abenevaut.dev
+      - uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.ABENEVAUT_GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: dist

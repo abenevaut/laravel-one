@@ -2,6 +2,8 @@
 
 Tool to generate static webpages based on [Blade Templates](https://laravel.com/docs/9.x/blade).
 
+- credits to [tailwindtoolbox](https://github.com/tailwindtoolbox/Minimal-Blog) for the HTML template
+
 ## Install
 
 - [Available on Packagist.org - abenevaut/laravel-one](https://packagist.org/packages/abenevaut/laravel-one)
