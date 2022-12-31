@@ -1,4 +1,5 @@
 view: 404
+sitemap: false
 language: en
 seo:
   title: laravel-one documentation

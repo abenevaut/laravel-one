@@ -3,6 +3,13 @@
 
 define('LARAVEL_START', microtime(true));
 
+if (str_contains(__DIR__, 'phar://')) {
+    define('LARAVEL_ONE_BINARY', str_replace('phar://', '', __DIR__));
+}
+else {
+    define('LARAVEL_ONE_BINARY', __DIR__ . '/laravel-one');
+}
+
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader
