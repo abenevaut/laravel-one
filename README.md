@@ -14,11 +14,7 @@ composer global require abenevaut/laravel-one
 ```
 
 #### Usage
-```shell
-laravel-one generate
-```
-
-[To setup your first website, follow the wiki](https://github.com/abenevaut/laravel-one/wiki)
+![how-to](https://github.com/abenevaut/laravel-one/blob/master/laravel-one-demo.gif)
 
 ## Build
 ```shell

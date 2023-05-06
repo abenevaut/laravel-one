@@ -16,28 +16,44 @@ jobs:
       group: laravel-one-ghpages
       cancel-in-progress: false
     steps:
+
       - name: Checkout project
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
+
       - name: Initialize PHP ${{ env.php_version }}
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ env.php_version }}
+
       - name: Configure Composer cache
+        id: composer-cache
         uses: actions/cache@v2
         with:
           path: ~/vendor
           key: ${{ runner.os }}-node-php_${{ env.php_version }}-${{ hashFiles('**/composer.json') }}
           restore-keys: |
             ${{ runner.os }}-node-php_${{ env.php_version }}-
+
       - name: Composer install
         if: steps.composer-cache.outputs.cache-hit != 'true'
         run: composer install -o --no-interaction --prefer-dist
+
+      - name: Web pages cache
+        id: web-pages-cache
+        uses: actions/cache@v2
+        with:
+          path: ./.cache
+          key: laravel-one-web-pages-cache
+          restore-keys: |
+            laravel-one-web-pages-cache
+
       - name: Generate static pages
         run: |
           composer global require abenevaut/laravel-one
           laravel-one generate https://laravel-one.abenevaut.dev
+
       - uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           ACCESS_TOKEN: ${{ secrets.ABENEVAUT_GITHUB_TOKEN }}

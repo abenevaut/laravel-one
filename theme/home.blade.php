@@ -23,12 +23,16 @@
 
         <h3 class="py-2 font-sans">Globally</h3>
         <pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4">
-            <code class="break-words whitespace-pre-wrap">composer global require abenevaut/laravel-one</code>
+            <code class="break-words whitespace-pre-wrap">
+composer global require abenevaut/laravel-one
+            </code>
         </pre>
 
         <h4 class="py-2 font-sans">Usage</h4>
         <pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4">
-            <code class="break-words whitespace-pre-wrap">laravel-one generate</code>
+            <code class="break-words whitespace-pre-wrap">
+laravel-one generate
+            </code>
         </pre>
 
         <a class="inline-block text-primary hover:underline" href="https://github.com/abenevaut/laravel-one/wiki" target="_blank">To setup your first website, follow the wiki</a>

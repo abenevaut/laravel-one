@@ -1,6 +1,7 @@
 /.cache
 /builds
 /dist
+/coverage
 /vendor
 /.idea
 /.vscode

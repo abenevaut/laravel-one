@@ -70,6 +70,7 @@ return [
         App\Providers\AppServiceProvider::class,
         Illuminate\Routing\RoutingServiceProvider::class,
         Spatie\Sitemap\SitemapServiceProvider::class,
+        \abenevaut\Infrastructure\App\Providers\ArkitectServiceProvider::class,
     ],
 
 ];

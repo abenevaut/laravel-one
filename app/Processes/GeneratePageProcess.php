@@ -11,7 +11,9 @@ class GeneratePageProcess extends Process
     {
         parent::__construct([
             'php',
-            LARAVEL_ONE_BINARY,
+            \Phar::running()
+                ? \Phar::running(false)
+                : base_path('laravel-one'),
             'generate:page',
             // @todo xABE: Should be transformed to $page->toJson()
             json_encode([
