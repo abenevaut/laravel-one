@@ -36,4 +36,14 @@ class Page extends Data implements \SplSubject
             $observer->update($this);
         }
     }
+
+    public function toJson($options = 0): string
+    {
+        return json_encode([
+            'file' => $this->file,
+            'distUrl' => $this->distUrl,
+            'distUri' => $this->distUri,
+            'content' => $this->content,
+        ], $options);
+    }
 }
