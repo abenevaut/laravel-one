@@ -18,7 +18,11 @@
         <h2 class="py-2 font-sans">Install</h2>
 
         <ul class="rounded-circle">
-            <li><a class="inline-block text-primary hover:underline" href="https://packagist.org/packages/abenevaut/laravel-one" target="_blank">Available on Packagist.org - abenevaut/laravel-one</a></li>
+            <li>
+                <a class="inline-block text-primary hover:underline" href="https://packagist.org/packages/abenevaut/laravel-one" target="_blank">
+                    Available on Packagist.org - abenevaut/laravel-one
+                </a>
+            </li>
         </ul>
 
         <h3 class="py-2 font-sans">Globally</h3>
@@ -31,11 +35,13 @@ composer global require abenevaut/laravel-one
         <h4 class="py-2 font-sans">Usage</h4>
         <pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4">
             <code class="break-words whitespace-pre-wrap">
-laravel-one generate
+laravel-one generate https://my-website.com
             </code>
         </pre>
 
-        <a class="inline-block text-primary hover:underline" href="https://github.com/abenevaut/laravel-one/wiki" target="_blank">To setup your first website, follow the wiki</a>
+        <a class="inline-block text-primary hover:underline" href="https://github.com/abenevaut/laravel-one/wiki" target="_blank">
+            To setup your first website, follow the wiki
+        </a>
 
         <h2 class="py-2 font-sans">Build</h2>
         <pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4">

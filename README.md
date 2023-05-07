@@ -14,10 +14,14 @@ composer global require abenevaut/laravel-one
 ```
 
 #### Usage
-![how-to](https://github.com/abenevaut/laravel-one/blob/master/laravel-one-demo.gif)
+![how-to](https://raw.githubusercontent.com/abenevaut/laravel-one/master/demo.gif)
 
 ## Build
 ```shell
 php laravel-one app:build laravel-one
 php laravel-one app:build laravel-one --build-version=0.0.X
 ```
+
+## Licensing
+
+- Credits to [tailwindtoolbox](https://github.com/tailwindtoolbox/Minimal-Blog) for the HTML template
