@@ -11,12 +11,6 @@ Tool to generate static webpages based on [Blade Templates](https://laravel.com/
 composer global require abenevaut/laravel-one
 ```
 
-## Build
-```shell
-php laravel-one app:build laravel-one
-php laravel-one app:build laravel-one --build-version=0.0.X
-```
-
 ## Usage
 
 To create a new project, you have to create the following directories & files:
@@ -47,6 +41,13 @@ laravel-one generate https://my-website.com
 All generated files are in the `dist` directory.
 A `sitemap.xml` file is also generated.
 
+## Build
+```shell
+php laravel-one app:build laravel-one
+php laravel-one app:build laravel-one --build-version=0.0.X
+```
+
 ## Licensing
 
 - Credits to [tailwindtoolbox](https://github.com/tailwindtoolbox/Minimal-Blog) for the HTML template
+- The Laravel Zero is open-sourced software licensed under the [MIT license](https://opensource.org/license/mit/).
