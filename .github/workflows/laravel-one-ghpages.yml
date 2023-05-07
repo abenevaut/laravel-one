@@ -50,7 +50,7 @@ jobs:
             ${{ runner.os }}-pages-cache-php_${{ env.php_version }}-${{ hashFiles('**/composer.json') }}
 
       - name: Generate static pages
-        run: vendor/bin/laravel-one generate https://laravel-one.abenevaut.dev
+        run: php laravel-one generate https://laravel-one.abenevaut.dev
 
       - uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
