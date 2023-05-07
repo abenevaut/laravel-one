@@ -31,7 +31,7 @@ jobs:
         id: composer-cache
         uses: actions/cache@v2
         with:
-          path: ~/vendor
+          path: vendor
           key: ${{ runner.os }}-node-php_${{ env.php_version }}-${{ hashFiles('**/composer.json') }}
           restore-keys: |
             ${{ runner.os }}-node-php_${{ env.php_version }}-
@@ -44,15 +44,13 @@ jobs:
         id: web-pages-cache
         uses: actions/cache@v2
         with:
-          path: ./.cache
-          key: laravel-one-web-pages-cache
+          path: .cache
+          key: ${{ runner.os }}-pages-cache-php_${{ env.php_version }}-${{ hashFiles('**/composer.json') }}
           restore-keys: |
-            laravel-one-web-pages-cache
+            ${{ runner.os }}-pages-cache-php_${{ env.php_version }}-${{ hashFiles('**/composer.json') }}
 
       - name: Generate static pages
-        run: |
-          composer global require abenevaut/laravel-one
-          laravel-one generate https://laravel-one.abenevaut.dev
+        run: vendor/bin/laravel-one generate https://laravel-one.abenevaut.dev
 
       - uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
