@@ -1,57 +1,13 @@
 @extends('layouts.app', ['language' => $language, 'seo' => $seo])
 
+@section('head')
+<style>@media print{*,:after,:before{background:0 0!important;color:#000!important;box-shadow:none!important;text-shadow:none!important}a,a:visited{text-decoration:underline}a[href]:after{content:" (" attr(href) ")"}abbr[title]:after{content:" (" attr(title) ")"}a[href^="#"]:after,a[href^="javascript:"]:after{content:""}blockquote,pre{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}img,tr{page-break-inside:avoid}img{max-width:100%!important}h2,h3,p{orphans:3;widows:3}h2,h3{page-break-after:avoid}}@media screen and (min-width:32rem) and (max-width:48rem){html{font-size:15px}}@media screen and (min-width:48rem){html{font-size:16px}}body{line-height:1.85}.splendor-p,p{font-size:1rem;margin-bottom:1.3rem}.splendor-h1,.splendor-h2,.splendor-h3,.splendor-h4,h1,h2,h3,h4{margin:1.414rem 0 .5rem;font-weight:inherit;line-height:1.42}.splendor-h1,h1{margin-top:0;font-size:3.998rem}.splendor-h2,h2{font-size:2.827rem}.splendor-h3,h3{font-size:1.999rem}.splendor-h4,h4{font-size:1.414rem}.splendor-h5,h5{font-size:1.121rem}.splendor-h6,h6{font-size:.88rem}.splendor-small,small{font-size:.707em}canvas,iframe,img,select,svg,textarea,video{max-width:100%}@import url(http://fonts.googleapis.com/css?family=Merriweather:300italic,300);html{font-size:18px;max-width:100%}body{color:#444;font-family:Merriweather,Georgia,serif;margin:0;max-width:100%}:not(div):not(img):not(body):not(html):not(li):not(blockquote):not(p),p{margin:1rem auto;max-width:36rem;padding:.25rem}div,div img{width:100%}blockquote p{font-size:1.5rem;font-style:italic;margin:1rem auto;max-width:48rem}li{margin-left:2rem}h1{padding:4rem 0!important}p{color:#555;height:auto;line-height:1.45}code,pre{font-family:Menlo,Monaco,"Courier New",monospace}pre{background-color:#fafafa;font-size:.8rem;overflow-x:scroll;padding:1.125em}a,a:visited{color:#3498db}a:active,a:focus,a:hover{color:#2980b9}</style>
+@endsection
+
 @section('content')
 <div class="container w-full md:max-w-3xl mx-auto pt-20 pb-12">
     <div class="w-full px-4 md:px-6 text-xl text-gray-800 leading-normal" style="font-family:Georgia,serif;">
-
-        <div class="font-sans">
-            <h1 class="font-bold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl md:text-4xl">laravel-one documentation</h1>
-        </div>
-
-
-        Tool to generate static webpages based on <a class="inline-block text-primary hover:underline" href="https://laravel.com/docs/9.x/blade">Blade Templates</a>.
-
-        <ul class="rounded-circle">
-            <li>credits to <a class="inline-block text-primary hover:underline" href="https://github.com/tailwindtoolbox/Minimal-Blog">tailwindtoolbox</a> for the HTML template</li>
-        </ul>
-
-        <h2 class="py-2 font-sans">Install</h2>
-
-        <ul class="rounded-circle">
-            <li>
-                <a class="inline-block text-primary hover:underline" href="https://packagist.org/packages/abenevaut/laravel-one" target="_blank">
-                    Available on Packagist.org - abenevaut/laravel-one
-                </a>
-            </li>
-        </ul>
-
-        <h3 class="py-2 font-sans">Globally</h3>
-        <pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4">
-            <code class="break-words whitespace-pre-wrap">
-composer global require abenevaut/laravel-one
-            </code>
-        </pre>
-
-        <h4 class="py-2 font-sans">Usage</h4>
-        <pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4">
-            <code class="break-words whitespace-pre-wrap">
-laravel-one generate https://my-website.com
-            </code>
-        </pre>
-
-        <a class="inline-block text-primary hover:underline" href="https://github.com/abenevaut/laravel-one/wiki" target="_blank">
-            To setup your first website, follow the wiki
-        </a>
-
-        <h2 class="py-2 font-sans">Build</h2>
-        <pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4">
-            <code class="break-words whitespace-pre-wrap">
-php laravel-one app:build laravel-one
-php laravel-one app:build laravel-one --build-version=0.0.X
-            </code>
-        </pre>
-
+        <x-markdown>{{ $readme }}</x-markdown>
     </div>
-
 </div>
 @endsection

@@ -5,3 +5,30 @@ seo:
   description: laravel-one, tool to generate static webpages with blade
   keywords: laravel-one, static webpages, sitemap, blade php
   author: Antoine Benevaut
+
+readme: >1
+  # laravel-one documentation
+  Tool to generate static webpages based on [Blade Templates](https://laravel.com/docs/9.x/blade).
+
+  - credits to [markdowncss](https://github.com/markdowncss/splendor) for the HTML template
+
+  ## Install
+  - [Available on Packagist.org - abenevaut/laravel-one](https://packagist.org/packages/abenevaut/laravel-one)
+
+  ### Globally
+  ```bash
+  composer global require abenevaut/laravel-one
+  ```
+
+  #### Usage
+  ```bash
+  laravel-one generate https://my-website.com
+  ```
+
+  [To setup your first website, follow the wiki](https://github.com/abenevaut/laravel-one#laravel-one)
+
+  ## Build
+  ```bash
+  php laravel-one app:build laravel-one
+  php laravel-one app:build laravel-one --build-version=0.0.X
+  ```

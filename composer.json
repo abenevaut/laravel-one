@@ -24,7 +24,8 @@
         "illuminate/view": "^10.9",
         "nunomaduro/termwind": "^1.15",
         "spatie/laravel-data": "^3.5",
-        "spatie/laravel-sitemap": "^6.3",
+        "spatie/laravel-markdown": "^2.4",
+        "spatie/laravel-sitemap": "^7.0",
         "symfony/yaml": "^6.2"
     },
     "require-dev": {

@@ -5,7 +5,7 @@ use App\GeneratorSettings;
 
 test('GeneratorSettings', function () {
 
-    $url = fake()->url;
+    $url = fake()->url();
     $plugins = [];
 
     $generatorSettings = new GeneratorSettings($url, $plugins);

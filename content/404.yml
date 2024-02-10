@@ -6,3 +6,8 @@ seo:
   description: laravel-one, tool to generate static webpages with blade
   keywords: laravel-one, static webpages, sitemap, blade php
   author: Antoine Benevaut
+
+error:
+  number: 404
+  title: "Oops! That page can’t be found."
+  btnTitle: "< Back to home"
