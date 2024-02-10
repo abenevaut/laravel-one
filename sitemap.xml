@@ -2,8 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <url>
         <loc>https://laravel-one.abenevaut.dev/index.html</loc>
-        <lastmod>2023-05-07T09:41:55+00:00</lastmod>
-        <changefreq>monthly</changefreq>
+            <changefreq>monthly</changefreq>
         <priority>0.1</priority>
         </url>
 </urlset>
