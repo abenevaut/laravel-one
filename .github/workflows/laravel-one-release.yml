@@ -2,7 +2,7 @@ name: laravel-one-release
 
 on:
   release:
-    types: [published]
+    types: [ released ]
 
 defaults:
   run:
