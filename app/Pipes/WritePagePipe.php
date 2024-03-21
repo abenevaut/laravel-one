@@ -16,6 +16,8 @@ class WritePagePipe extends PipeAbstract
         $distPath = Str::remove($this->path('content/'), $page->file);
         $distPath = Str::replace('yml', 'html', $distPath);
 
+        config()->set('view', $page->viewConfig);
+
         file_put_contents(
             $this->path("dist/{$distPath}"),
             View::make($page->content['view'], $page->content)

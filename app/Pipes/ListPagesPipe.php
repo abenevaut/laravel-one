@@ -34,7 +34,8 @@ class ListPagesPipe extends PipeAbstract
                 $file,
                 $generatorSettings->url,
                 $distUri,
-                $content
+                $content,
+                config('view')
             );
 
             // Attach observers

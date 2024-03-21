@@ -1,7 +1,7 @@
 {
     "name": "abenevaut/laravel-one",
     "description": "The Laravel One static web pages generator.",
-    "keywords": ["laravel-one", "static", "web", "pages","generator"],
+    "keywords": ["laravel-one", "static", "web", "pages", "generator"],
     "homepage": "https://laravel-one.abenevaut.dev",
     "type": "project",
     "license": "GPL-3.0-only",
@@ -21,6 +21,8 @@
         "illuminate/http": "^10.9",
         "illuminate/log": "^10.9",
         "illuminate/routing": "^10.9",
+        "illuminate/translation": "^10.48",
+        "illuminate/validation": "^10.48",
         "illuminate/view": "^10.9",
         "nunomaduro/termwind": "^1.15",
         "spatie/laravel-data": "^4.1",

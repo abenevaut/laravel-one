@@ -12,7 +12,8 @@ class Page extends Data implements \SplSubject
         public string $file,
         public string $distUrl,
         public string $distUri,
-        public array $content
+        public array $content,
+        public array $viewConfig,
     ) {
     }
 
@@ -44,6 +45,7 @@ class Page extends Data implements \SplSubject
             'distUrl' => $this->distUrl,
             'distUri' => $this->distUri,
             'content' => $this->content,
+            'viewConfig' => $this->viewConfig,
         ], $options);
     }
 }

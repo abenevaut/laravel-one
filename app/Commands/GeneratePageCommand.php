@@ -6,6 +6,7 @@ use App\Domain\Pages\Pages\Page;
 use App\Pipes\FindOrCreatePageDistributionDirectoryPipe;
 use App\Pipes\WritePagePipe;
 use Illuminate\Pipeline\Pipeline;
+use Illuminate\Support\Facades\Validator;
 use LaravelZero\Framework\Commands\Command;
 
 class GeneratePageCommand extends Command
@@ -18,6 +19,10 @@ class GeneratePageCommand extends Command
     public function handle(): bool
     {
         try {
+            Validator::validate($this->arguments(), [
+                'page' => 'string',
+            ]);
+
             $page = json_decode($this->argument('page'), true);
             $page = new Page(...$page);
 

@@ -13,6 +13,7 @@ use App\Pipes\FindOrCreateDistributionDirectoryPipe;
 use App\Pipes\FindContentDirectoryPipe;
 use App\Pipes\FindThemeDirectoryPipe;
 use Illuminate\Pipeline\Pipeline;
+use Illuminate\Support\Facades\Validator;
 
 class GenerateCommand extends ProcessPoolCommandAbstract
 {
@@ -29,30 +30,39 @@ class GenerateCommand extends ProcessPoolCommandAbstract
 
     public function boot(): self
     {
-        $generatorSettings = new GeneratorSettings(
-            $this->argument('url'),
-            [
-                new Sitemap(),
-            ]
-        );
+        try {
+            Validator::validate($this->arguments(), [
+                'url' => 'required|url',
+                'concurrency' => 'number|min:1',
+            ]);
 
-        $pages = app(Pipeline::class)
-            ->send($generatorSettings)
-            ->through([
-                FindContentDirectoryPipe::class,
-                FindThemeDirectoryPipe::class,
-                FindOrCreateCacheDirectoryPipe::class,
-                FindOrCreateDistributionDirectoryPipe::class,
-                SetViewCompiledConfigPipe::class,
-                SetViewPathsConfigPipe::class,
-                ListPagesPipe::class,
-            ])
-            ->thenReturn();
+            $generatorSettings = new GeneratorSettings(
+                $this->argument('url'),
+                [
+                    new Sitemap(),
+                ]
+            );
 
-        $this->push($pages->processes);
+            $pages = app(Pipeline::class)
+                ->send($generatorSettings)
+                ->through([
+                    FindContentDirectoryPipe::class,
+                    FindThemeDirectoryPipe::class,
+                    FindOrCreateCacheDirectoryPipe::class,
+                    FindOrCreateDistributionDirectoryPipe::class,
+                    SetViewCompiledConfigPipe::class,
+                    SetViewPathsConfigPipe::class,
+                    ListPagesPipe::class,
+                ])
+                ->thenReturn();
 
-        foreach ($generatorSettings->plugins as $plugin) {
-            $plugin->generate();
+            $this->push($pages->processes);
+
+            foreach ($generatorSettings->plugins as $plugin) {
+                $plugin->generate();
+            }
+        } catch (\Exception $exception) {
+            $this->error($exception->getMessage());
         }
 
         return $this;

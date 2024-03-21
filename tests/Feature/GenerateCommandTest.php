@@ -35,5 +35,5 @@ it('generate laravel-one web pages', function () {
     expect(count($files))->toBe(3);
 
     $files = array_diff(scandir('./.cache'), ['.', '..']);
-    expect(count($files))->toBe(2);
+    expect(count($files))->toBe(6);
 });
