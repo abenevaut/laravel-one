@@ -3,7 +3,7 @@ name: laravel-one-release
 on:
   push:
     tags:
-      - *
+      - '*'
 
 defaults:
   run:
@@ -13,7 +13,6 @@ jobs:
 
   publish:
     runs-on: ubuntu-latest
-    needs: release
     permissions:
       contents: write
     concurrency:
