@@ -1,9 +1,8 @@
 name: laravel-one-release
 
 on:
-  push:
-    tags:
-      - '*'
+  release:
+    types: [published]
 
 defaults:
   run:
