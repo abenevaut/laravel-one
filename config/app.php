@@ -69,8 +69,8 @@ return [
     'providers' => [
         App\Providers\AppServiceProvider::class,
         Illuminate\Routing\RoutingServiceProvider::class,
-        Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\Translation\TranslationServiceProvider::class,
+        Illuminate\Validation\ValidationServiceProvider::class,
         Spatie\Sitemap\SitemapServiceProvider::class,
         Spatie\LaravelMarkdown\MarkdownServiceProvider::class,
         \abenevaut\Infrastructure\App\Providers\ArkitectServiceProvider::class,

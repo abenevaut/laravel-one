@@ -2,7 +2,7 @@ name: laravel-one-release
 
 on:
   release:
-    types: [created]
+    types: [ created ]
 
 defaults:
   run:
@@ -31,7 +31,6 @@ jobs:
       - name: add assets to release
         run: |
           sha512sum laravel-one > laravel-one.sha512sum
-          sha512sum -c laravel-one.sha512sum
           gh release upload ${{ steps.branch-name.outputs.SOURCE_TAG }} laravel-one.sha512sum
           gh release upload ${{ steps.branch-name.outputs.SOURCE_TAG }} laravel-one
         env:

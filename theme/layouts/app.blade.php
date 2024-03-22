@@ -5,10 +5,10 @@
     <meta name="robots" content="index, follow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>{{ $seo['title'] }}</title>
-    <meta name="author" content="{{ $seo['author'] }}" />
-    <meta name="description" content="{{ $seo['description'] }}" />
-    <meta name="keywords" content="{{ $seo['keywords'] }}" />
+    <title>{{ \Illuminate\Support\Facades\Lang::get($seo['title'], [], 'en') }}</title>
+    <meta name="author" content="{{ \Illuminate\Support\Facades\Lang::get($seo['author'], [], 'en') }}" />
+    <meta name="description" content="{{ \Illuminate\Support\Facades\Lang::get($seo['description'], [], 'en') }}" />
+    <meta name="keywords" content="{{ \Illuminate\Support\Facades\Lang::get($seo['keywords'], [], 'en') }}" />
     @yield('head')
 </head>
 <body class="bg-gray-100 font-sans leading-normal tracking-normal">
