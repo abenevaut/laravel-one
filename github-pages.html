@@ -7,28 +7,28 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=rubik:400,500,600&display=swap" rel="stylesheet" />
 
-        <title>laravel-one documentation</title>
+        <title>Generate GitHub pages</title>
         <meta name="description" content="laravel-one, tool to generate static webpages with blade">
         <meta name="keywords" content="ctf, security, comcyber">
         <meta name="author" content="Antoine Benevaut">
 
         <meta property="og:type" content="website">
         <meta property="og:url" content="https://www.abenevaut.dev/">
-        <meta property="og:title" content="laravel-one documentation">
+        <meta property="og:title" content="Generate GitHub pages">
         <meta property="og:description" content="laravel-one, tool to generate static webpages with blade">
         <meta property="og:image" content="https://www.abenevaut.dev/seo/abenevaut-og.webp">
 
         <meta property="twitter:card" content="summary_large_image">
         <meta name=”twitter:creator” content=”@abenevaut”>
         <meta property="twitter:url" content="https://www.abenevaut.dev/">
-        <meta property="twitter:title" content="laravel-one documentation">
+        <meta property="twitter:title" content="Generate GitHub pages">
         <meta property="twitter:description" content="laravel-one, tool to generate static webpages with blade">
         <meta property="twitter:image" content="https://www.abenevaut.dev/seo/abenevaut-og.webp">
         <meta property="twitter:image:alt" content="laravel-one, tool to generate static webpages with blade">
 
             <link rel="canonical" href="//index.html" />
     <script>
-      window.article = "<a href=\"#laravel-one-documentation\"><h1 id='laravel-one-documentation'>laravel-one documentation<\/h1><\/a>\n<p>Tool to generate static webpages based on <a href=\"https:\/\/laravel.com\/docs\/9.x\/blade\">Blade Templates<\/a>.<\/p>\n<ul>\n<li>credits to <a href=\"https:\/\/github.com\/markdowncss\/splendor\">markdowncss<\/a> for the HTML template<\/li>\n<\/ul>\n<a href=\"#install\"><h2 id='install'>Install<\/h2><\/a>\n<ul>\n<li>\n<a href=\"https:\/\/packagist.org\/packages\/abenevaut\/laravel-one\">Available on Packagist.org - abenevaut\/laravel-one<\/a>\n<\/li>\n<\/ul>\n<a href=\"#globally\"><h3 id='globally'>Globally<\/h3><\/a>\n<pre><code class=\"language-bash\">composer global require abenevaut\/laravel-one\n<\/code><\/pre>\n<a href=\"#usage\"><h4 id='usage'>Usage<\/h4><\/a>\n<pre><code class=\"language-bash\">laravel-one generate https:\/\/my-website.com\n<\/code><\/pre>\n<p><a href=\"https:\/\/github.com\/abenevaut\/laravel-one#laravel-one\">To setup your first website, follow the wiki<\/a><\/p>\n<a href=\"#build\"><h2 id='build'>Build<\/h2><\/a>\n<pre><code class=\"language-bash\">php laravel-one app:build laravel-one\nphp laravel-one app:build laravel-one --build-version=0.0.X\n<\/code><\/pre>\n"
+      window.article = "<a href=\"#generate-github-pages\"><h1 id='generate-github-pages'>Generate GitHub pages<\/h1><\/a>\n<a href=\"#action\"><h2 id='action'>Action<\/h2><\/a>\n<pre><code class=\"language-bash\">name: github-pages-release\n\non:\n  release:\n    types: [ published ]\n\nenv:\n  php_version: 8.3\n  node_version: lts\/iron\n\njobs:\n\n  release:\n    runs-on: ubuntu-latest\n    concurrency:\n      group: github-pages-release\n      cancel-in-progress: false\n    permissions:\n      contents: write\n    steps:\n\n      - name: Checkout project\n        uses: actions\/checkout@v2\n        with:\n          fetch-depth: 1\n\n      - name: Initialize PHP ${{ env.php_version }}\n        uses: shivammathur\/setup-php@v2\n        with:\n          php-version: ${{ env.php_version }}\n\n      - name: Configure Composer cache\n        uses: actions\/cache@v3\n        with:\n          path: ~\/vendor\n          key: ${{ runner.os }}-node-php_${{ env.php_version }}-${{ hashFiles('**\/composer.json') }}\n          restore-keys: |\n            ${{ runner.os }}-node-php_${{ env.php_version }}-\n\n      - name: Composer install\n        if: steps.composer-cache.outputs.cache-hit != 'true'\n        run: composer install -o --no-interaction --prefer-dist\n\n      - name: Validate composer file\n        run: |\n          composer -V\n          composer validate --strict\n\n      - name: Generate static pages\n        run: |\n          vendor\/bin\/laravel-one generate https:\/\/www.your-website.com\n\n      - uses: JamesIves\/github-pages-deploy-action@releases\/v4\n        with:\n          BRANCH: gh-pages\n          FOLDER: dist\n<\/code><\/pre>\n"
     </script>
     <script type="module" src="assets/Article.js"></script>
 
