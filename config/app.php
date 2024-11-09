@@ -73,7 +73,6 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Spatie\Sitemap\SitemapServiceProvider::class,
         Spatie\LaravelMarkdown\MarkdownServiceProvider::class,
-        \abenevaut\Infrastructure\App\Providers\ArkitectServiceProvider::class,
     ],
 
 ];

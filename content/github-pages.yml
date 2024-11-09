@@ -1,0 +1,73 @@
+view: article
+language: en
+seo:
+  title: Generate GitHub pages
+  description: laravel-one, tool to generate static webpages with blade
+  keywords: ctf, security, comcyber
+  author: Antoine Benevaut
+  twitter: "@abenevaut"
+  og-image: https://www.abenevaut.dev/seo/abenevaut-og.webp
+  url: https://www.abenevaut.dev/
+
+article: |+
+  # Generate GitHub pages
+
+  ## Action
+  ```bash
+  name: github-pages-release
+
+  on:
+    release:
+      types: [ published ]
+
+  env:
+    php_version: 8.3
+    node_version: lts/iron
+
+  jobs:
+
+    release:
+      runs-on: ubuntu-latest
+      concurrency:
+        group: github-pages-release
+        cancel-in-progress: false
+      permissions:
+        contents: write
+      steps:
+
+        - name: Checkout project
+          uses: actions/checkout@v2
+          with:
+            fetch-depth: 1
+
+        - name: Initialize PHP ${{ env.php_version }}
+          uses: shivammathur/setup-php@v2
+          with:
+            php-version: ${{ env.php_version }}
+
+        - name: Configure Composer cache
+          uses: actions/cache@v3
+          with:
+            path: ~/vendor
+            key: ${{ runner.os }}-node-php_${{ env.php_version }}-${{ hashFiles('**/composer.json') }}
+            restore-keys: |
+              ${{ runner.os }}-node-php_${{ env.php_version }}-
+
+        - name: Composer install
+          if: steps.composer-cache.outputs.cache-hit != 'true'
+          run: composer install -o --no-interaction --prefer-dist
+
+        - name: Validate composer file
+          run: |
+            composer -V
+            composer validate --strict
+
+        - name: Generate static pages
+          run: |
+            vendor/bin/laravel-one generate https://www.your-website.com
+
+        - uses: JamesIves/github-pages-deploy-action@releases/v4
+          with:
+            BRANCH: gh-pages
+            FOLDER: dist
+  ```

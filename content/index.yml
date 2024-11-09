@@ -1,12 +1,15 @@
-view: home
+view: article
 language: en
 seo:
   title: laravel-one documentation
   description: laravel-one, tool to generate static webpages with blade
-  keywords: laravel-one, static webpages, sitemap, blade php
+  keywords: ctf, security, comcyber
   author: Antoine Benevaut
+  twitter: "@abenevaut"
+  og-image: https://www.abenevaut.dev/seo/abenevaut-og.webp
+  url: https://www.abenevaut.dev/
 
-readme: >1
+article: |+
   # laravel-one documentation
   Tool to generate static webpages based on [Blade Templates](https://laravel.com/docs/9.x/blade).
 

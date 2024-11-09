@@ -1,0 +1,39 @@
+{
+  "type": "module",
+  "description": "laravel-one showcase",
+  "engines": {
+    "node": "^20"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "homepage": "https://laravel-one.abenevaut.dev",
+  "author": "Antoine Benevaut",
+  "license": "proprietary",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:abenevaut/laravel-one.git"
+  },
+  "bugs": {
+    "url": "https://github.com/abenevaut/opensource/issues"
+  },
+  "devDependencies": {
+    "@abenevaut/tailwindui": "^0.0.5",
+    "@piwikpro/react-piwik-pro": "^2.1.1",
+    "@sentry/react": "^8.24.0",
+    "@tailwindcss/typography": "^0.5.15",
+    "@tanstack/react-query": "^5.45.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "axios": "^1.7.7",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.6",
+    "laravel-vite-plugin": "^1.0",
+    "postcss": "^8.4.38",
+    "vite": "^5.2.0"
+  }
+}
