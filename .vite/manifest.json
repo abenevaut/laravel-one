@@ -1,0 +1,90 @@
+{
+  "_App2.js": {
+    "file": "assets/App2.js",
+    "name": "App",
+    "assets": [
+      "assets/app-icon.webp"
+    ]
+  },
+  "_divider.js": {
+    "file": "assets/divider.js",
+    "name": "divider",
+    "imports": [
+      "_App2.js"
+    ]
+  },
+  "_markdown.js": {
+    "file": "assets/markdown.js",
+    "name": "markdown",
+    "imports": [
+      "_App2.js"
+    ]
+  },
+  "node_modules/@abenevaut/maskot-2013/dist/app-icon.webp": {
+    "file": "assets/app-icon.webp",
+    "src": "node_modules/@abenevaut/maskot-2013/dist/app-icon.webp"
+  },
+  "theme/css/app.css": {
+    "file": "assets/app.css",
+    "src": "theme/css/app.css",
+    "isEntry": true
+  },
+  "theme/js/Article.jsx": {
+    "file": "assets/Article.js",
+    "name": "Article",
+    "src": "theme/js/Article.jsx",
+    "isEntry": true,
+    "imports": [
+      "_App2.js",
+      "_markdown.js"
+    ]
+  },
+  "theme/js/Home.jsx": {
+    "file": "assets/Home.js",
+    "name": "Home",
+    "src": "theme/js/Home.jsx",
+    "isEntry": true,
+    "imports": [
+      "_App2.js"
+    ]
+  },
+  "theme/js/Privacy.jsx": {
+    "file": "assets/Privacy.js",
+    "name": "Privacy",
+    "src": "theme/js/Privacy.jsx",
+    "isEntry": true,
+    "imports": [
+      "_App2.js",
+      "_divider.js"
+    ]
+  },
+  "theme/js/Profile.jsx": {
+    "file": "assets/Profile.js",
+    "name": "Profile",
+    "src": "theme/js/Profile.jsx",
+    "isEntry": true,
+    "imports": [
+      "_App2.js"
+    ]
+  },
+  "theme/js/Terms.jsx": {
+    "file": "assets/Terms.js",
+    "name": "Terms",
+    "src": "theme/js/Terms.jsx",
+    "isEntry": true,
+    "imports": [
+      "_App2.js",
+      "_divider.js"
+    ]
+  },
+  "theme/js/Writeup.jsx": {
+    "file": "assets/Writeup.js",
+    "name": "Writeup",
+    "src": "theme/js/Writeup.jsx",
+    "isEntry": true,
+    "imports": [
+      "_App2.js",
+      "_markdown.js"
+    ]
+  }
+}
