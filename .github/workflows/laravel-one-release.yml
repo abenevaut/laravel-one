@@ -4,14 +4,17 @@ on:
   release:
     types: [ created ]
 
-defaults:
-  run:
-    working-directory: ./builds
+env:
+  php_version: 8.3
+  node_version: lts/iron
 
 jobs:
 
-  publish:
+  publish-binaries:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./builds
     permissions:
       contents: write
     concurrency:
@@ -22,7 +25,7 @@ jobs:
       - name: Checkout project
         uses: actions/checkout@v4
         with:
-          fetch-depth: 1
+          fetch-depth: 0
 
       - name: Get current release tag
         id: branch-name
@@ -36,6 +39,19 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+  publish-docs:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: laravel-one-ghpages-${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: false
+    working-directory:
+    steps:
+
+      - name: Checkout project
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Publish to wiki
         uses: SwiftDocOrg/github-wiki-publish-action@v1
         with:
@@ -43,17 +59,43 @@ jobs:
         env:
           GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.ABENEVAUT_GITHUB_TOKEN }}
 
-  ghpages:
+  publish-pages:
     runs-on: ubuntu-latest
     concurrency:
       group: laravel-one-ghpages-${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: false
+    working-directory:
     steps:
 
       - name: Checkout project
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Use Node.js ${{ env.node_version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.node_version }}
+          registry-url: https://npm.pkg.github.com
+
+      - name: Configure Node.js cache
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-nodejs_${{ env.node_version }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-nodejs_${{ env.node_version }}-
+
+      - name: Setup NPM
+        run: |
+          npm config set "@abenevaut:registry" https://npm.pkg.github.com/
+          npm config set "//npm.pkg.github.com/:_authToken" $NODE_AUTH_TOKEN
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.ABENEVAUT_GITHUB_TOKEN }}
+
+      - name: NPM install
+        if: steps.composer-cache.outputs.cache-hit != 'true'
+        run: npm ci --prefer-offline --no-audit --progress=false
 
       - name: Initialize PHP ${{ env.php_version }}
         uses: shivammathur/setup-php@v2
@@ -62,7 +104,7 @@ jobs:
 
       - name: Configure Composer cache
         id: composer-cache
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: vendor
           key: ${{ runner.os }}-node-php_${{ env.php_version }}-${{ hashFiles('**/composer.json') }}
@@ -75,7 +117,7 @@ jobs:
 
       - name: Web pages cache
         id: web-pages-cache
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: .cache
           key: ${{ runner.os }}-pages-cache-php_${{ env.php_version }}-${{ hashFiles('**/composer.json') }}
