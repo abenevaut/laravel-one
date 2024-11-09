@@ -1,0 +1,37 @@
+name: laravel-one-release
+
+on:
+  release:
+    types: [ created ]
+
+defaults:
+  run:
+    working-directory: ./builds
+
+jobs:
+
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: laravel-one-publish-${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: false
+    steps:
+
+      - name: Checkout project
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Get current release tag
+        id: branch-name
+        run: echo "SOURCE_TAG=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+
+      - name: add assets to release
+        run: |
+          sha512sum laravel-one > laravel-one.sha512sum
+          gh release upload ${{ steps.branch-name.outputs.SOURCE_TAG }} laravel-one.sha512sum
+          gh release upload ${{ steps.branch-name.outputs.SOURCE_TAG }} laravel-one
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

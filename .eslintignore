@@ -1,0 +1,13 @@
+**/dist/
+**/documentation/
+**/docs/
+**/node_modules/
+**/public/
+**/tests/
+.eslintrc.cjs
+.nvmrc
+index.html
+jest.config.js
+README.md
+vite.config.cjs
+webpack.mix.js
