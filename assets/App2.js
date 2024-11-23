@@ -25143,17 +25143,60 @@ init({
 });
 const navItems = [
   { label: "Home", url: "index.html" },
-  { label: "Generate GitHub pages", url: "github-pages.html" }
+  { label: "Create your content", url: "create-your-content.html" },
+  { label: "Generate GitHub pages", url: "generate-github-pages.html" }
 ];
 const navFooterItems = [
   { label: "Support", url: "https://github.com/abenevaut/opensource/issues?q=is%3Aopen+is%3Aissue+label%3Alaravel-one" },
-  { label: "Changelog", url: "https://github.com/abenevaut/opensource/releases" },
-  { label: "Portfolio", url: "https://www.abenevaut.dev/index.html" }
+  { label: "Changelog", url: "https://github.com/abenevaut/opensource/releases?q=laravel-one-&expanded=true" },
+  { label: "Portfolio", url: "https://www.abenevaut.dev/index.html?pk_campaign=redirect-laravel-one-github-pages&pk_source=laravel-one.abenevaut.dev&pk_medium=showcase&pk_keyword=link&pk_content=v1&pk_cid=20241123" }
 ];
 function TeamDropdownMenu() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(DropdownMenu, { className: "min-w-80 lg:min-w-64", anchor: "bottom start", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(DropdownItem, { href: "/terms.html", children: /* @__PURE__ */ jsxRuntimeExports.jsx(DropdownLabel, { children: "Terms of services" }) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(DropdownItem, { href: "/privacy.html", children: /* @__PURE__ */ jsxRuntimeExports.jsx(DropdownLabel, { children: "Privacy policy" }) })
+    /* @__PURE__ */ jsxRuntimeExports.jsx(DropdownItem, { href: "https://www.abenevaut.dev/terms.html?pk_campaign=redirect-laravel-one-github-pages&pk_source=laravel-one.abenevaut.dev&pk_medium=showcase&pk_keyword=link&pk_content=v1&pk_cid=20241123", target: "_blank", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(DropdownLabel, { children: [
+      "Terms of services ",
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "svg",
+        {
+          xmlns: "http://www.w3.org/2000/svg",
+          fill: "none",
+          viewBox: "0 0 24 24",
+          strokeWidth: 1.5,
+          stroke: "currentColor",
+          className: "size-6",
+          children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "path",
+            {
+              strokeLinecap: "round",
+              strokeLinejoin: "round",
+              d: "M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+            }
+          )
+        }
+      )
+    ] }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(DropdownItem, { href: "https://www.abenevaut.dev/privacy.html?pk_campaign=redirect-laravel-one-github-pages&pk_source=laravel-one.abenevaut.dev&pk_medium=showcase&pk_keyword=link&pk_content=v1&pk_cid=20241123", target: "_blank", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(DropdownLabel, { children: [
+      "Privacy policy ",
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "svg",
+        {
+          xmlns: "http://www.w3.org/2000/svg",
+          fill: "none",
+          viewBox: "0 0 24 24",
+          strokeWidth: 1.5,
+          stroke: "currentColor",
+          className: "size-6",
+          children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "path",
+            {
+              strokeLinecap: "round",
+              strokeLinejoin: "round",
+              d: "M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+            }
+          )
+        }
+      )
+    ] }) })
   ] });
 }
 function App({ children }) {

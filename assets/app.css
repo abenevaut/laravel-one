@@ -1859,6 +1859,11 @@ select {
   height: 1.25rem;
 }
 
+.size-6 {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 .size-\[1\.125rem\] {
   width: 1.125rem;
   height: 1.125rem;
