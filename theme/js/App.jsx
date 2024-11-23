@@ -34,45 +34,56 @@ Sentry.init({
 
 const navItems = [
     { label: 'Home', url: 'index.html' },
-    { label: 'Generate GitHub pages', url: 'github-pages.html' },
+    { label: 'Create your content', url: 'create-your-content.html' },
+    { label: 'Generate GitHub pages', url: 'generate-github-pages.html' },
 ]
 
 const navFooterItems = [
     { label: 'Support', url: 'https://github.com/abenevaut/opensource/issues?q=is%3Aopen+is%3Aissue+label%3Alaravel-one' },
-    { label: 'Changelog', url: 'https://github.com/abenevaut/opensource/releases' },
-    { label: 'Portfolio', url: 'https://www.abenevaut.dev/index.html' },
+    { label: 'Changelog', url: 'https://github.com/abenevaut/opensource/releases?q=laravel-one-&expanded=true' },
+    { label: 'Portfolio', url: 'https://www.abenevaut.dev/index.html?pk_campaign=redirect-laravel-one-github-pages&pk_source=laravel-one.abenevaut.dev&pk_medium=showcase&pk_keyword=link&pk_content=v1&pk_cid=20241123' },
 ]
 
 function TeamDropdownMenu() {
   return (
     <DropdownMenu className="min-w-80 lg:min-w-64" anchor="bottom start">
 
-      <DropdownItem href="/terms.html">
-        <DropdownLabel>Terms of services</DropdownLabel>
+      <DropdownItem href="https://www.abenevaut.dev/terms.html?pk_campaign=redirect-laravel-one-github-pages&pk_source=laravel-one.abenevaut.dev&pk_medium=showcase&pk_keyword=link&pk_content=v1&pk_cid=20241123" target="_blank">
+        <DropdownLabel>Terms of services <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
+                 stroke="currentColor" className="size-6">
+                <path strokeLinecap="round" strokeLinejoin="round"
+                      d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
+            </svg>
+        </DropdownLabel>
       </DropdownItem>
 
-      <DropdownItem href="/privacy.html">
-        <DropdownLabel>Privacy policy</DropdownLabel>
-      </DropdownItem>
+        <DropdownItem href="https://www.abenevaut.dev/privacy.html?pk_campaign=redirect-laravel-one-github-pages&pk_source=laravel-one.abenevaut.dev&pk_medium=showcase&pk_keyword=link&pk_content=v1&pk_cid=20241123" target="_blank">
+            <DropdownLabel>Privacy policy <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
+                     stroke="currentColor" className="size-6">
+                    <path strokeLinecap="round" strokeLinejoin="round"
+                          d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
+                </svg>
+            </DropdownLabel>
+        </DropdownItem>
 
     </DropdownMenu>
   )
 }
 
-export default function App({ children }) {
+export default function App({children}) {
 
-  let pathname = useLocation().pathname;
+    let pathname = useLocation().pathname;
 
-  return (
-    <ThemeProvider>
-      <SidebarLayout
-        className="pb-10 pt-2"
-        navbar={
-          <Navbar>
+    return (
+        <ThemeProvider>
+            <SidebarLayout
+                className="pb-10 pt-2"
+                navbar={
+                    <Navbar>
 
-            <Dropdown>
+                        <Dropdown>
 
-              <DropdownButton as={ NavbarItem } className="max-lg:hidden">
+                            <DropdownButton as={NavbarItem} className="max-lg:hidden">
                 <Avatar src={logoUrl}/>
                 <NavbarLabel>Antoine Benevaut</NavbarLabel>
                 <ChevronDownIcon/>
