@@ -25179,7 +25179,7 @@ function App({ children }) {
         /* @__PURE__ */ jsxRuntimeExports.jsx(SidebarHeader, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Dropdown, { children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs(DropdownButton, { as: SidebarItem, className: "lg:mb-2.5", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(Avatar, { src: logoUrl }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(SidebarLabel, { children: "Tailwind Labs" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(SidebarLabel, { children: "Laravel one" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx(ForwardRef, {})
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsx(TeamDropdownMenu, {})
