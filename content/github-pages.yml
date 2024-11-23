@@ -3,10 +3,10 @@ language: en
 seo:
   title: Generate GitHub pages
   description: laravel-one, tool to generate static webpages with blade
-  keywords: ctf, security, comcyber
+  keywords: laravel, blade, static, webpages, generator
   author: Antoine Benevaut
   twitter: "@abenevaut"
-  og-image: https://www.abenevaut.dev/seo/abenevaut-og.webp
+  og-image: https://raw.githubusercontent.com/abenevaut/laravel-one/master/demo.gif
   url: https://www.abenevaut.dev/
 
 article: |+

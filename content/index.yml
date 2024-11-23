@@ -3,35 +3,60 @@ language: en
 seo:
   title: laravel-one documentation
   description: laravel-one, tool to generate static webpages with blade
-  keywords: ctf, security, comcyber
+  keywords: laravel, blade, static, webpages, generator
   author: Antoine Benevaut
   twitter: "@abenevaut"
-  og-image: https://www.abenevaut.dev/seo/abenevaut-og.webp
+  og-image: https://raw.githubusercontent.com/abenevaut/laravel-one/master/demo.gif
   url: https://www.abenevaut.dev/
 
 article: |+
   # laravel-one documentation
-  Tool to generate static webpages based on [Blade Templates](https://laravel.com/docs/9.x/blade).
-
-  - credits to [markdowncss](https://github.com/markdowncss/splendor) for the HTML template
+  Laravel-one, is a tool to generate static webpages based on [Blade Templates](https://laravel.com/docs/master/blade).
 
   ## Install
-  - [Available on Packagist.org - abenevaut/laravel-one](https://packagist.org/packages/abenevaut/laravel-one)
 
-  ### Globally
+  ### From latest release
+  Laravel-one binary is available on [release page](https://github.com/abenevaut/laravel-one/releases/latest)
+
+  ```bash
+  curl -L -o laravel-one https://github.com/abenevaut/laravel-one/releases/latest/download/laravel-one
+  chmod +x laravel-one
+  ```
+
+  A hash file is available to check the integrity of the binary.
+
+  ```bash
+  curl -L -o laravel-one https://github.com/abenevaut/laravel-one/releases/latest/download/laravel-one.sha512sum
+  sha512sum -c laravel-one.sha512sum
+  ```
+
+  ### From composer
+  Or, you can install the tool locally or globally with composer, depending your usage.
+
+  ```bash
+  composer require abenevaut/laravel-one
+  ```
+
   ```bash
   composer global require abenevaut/laravel-one
   ```
 
-  #### Usage
+  - [Packagist](https://packagist.org/packages/abenevaut/laravel-one)
+
+  ## Usage
+
+  Use our [bootstrap theme](https://github.com/abenevaut/laravel-one-bootstrap) to create your template with Blade syntax, and generate the static webpage with the following command.
+
   ```bash
   laravel-one generate https://my-website.com
   ```
 
-  [To setup your first website, follow the wiki](https://github.com/abenevaut/laravel-one#laravel-one)
+  Detailed documentation is available on [here](/create-your-content.html).
 
-  ## Build
-  ```bash
-  php laravel-one app:build laravel-one
-  php laravel-one app:build laravel-one --build-version=0.0.X
-  ```
+  When done, publish your static(s) webpage(s) with on [GitHub Pages](/github-pages.html).
+
+  Well done! Your just generated a very fast and secure website with Laravel-one.
+
+  ## How to contribute?
+
+  Laravel-one is an open-source project, feel free to contribute on [GitHub](https://github.com/abenevaut/opensource?tab=coc-ov-file).

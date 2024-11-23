@@ -55,25 +55,6 @@ function TeamDropdownMenu() {
         <DropdownLabel>Privacy policy</DropdownLabel>
       </DropdownItem>
 
-      {/*<DropdownDivider />*/}
-
-      {/*<DropdownItem href="/teams/1">*/}
-      {/*  <Avatar slot="icon" src={logoUrl} />*/}
-      {/*  <DropdownLabel>Tailwind Labs</DropdownLabel>*/}
-      {/*</DropdownItem>*/}
-
-      {/*<DropdownItem href="/teams/2">*/}
-      {/*  <Avatar slot="icon" initials="WC" className="bg-purple-500 text-white" />*/}
-      {/*  <DropdownLabel>Workcation</DropdownLabel>*/}
-      {/*</DropdownItem>*/}
-
-      {/*<DropdownDivider />*/}
-
-      {/*<DropdownItem href="/teams/create">*/}
-      {/*  <PlusIcon />*/}
-      {/*  <DropdownLabel>New team&hellip;</DropdownLabel>*/}
-      {/*</DropdownItem>*/}
-
     </DropdownMenu>
   )
 }
@@ -172,7 +153,7 @@ export default function App({ children }) {
               <Dropdown>
                 <DropdownButton as={ SidebarItem } className="lg:mb-2.5">
                   <Avatar src={ logoUrl }/>
-                  <SidebarLabel>Tailwind Labs</SidebarLabel>
+                  <SidebarLabel>Laravel one</SidebarLabel>
                   <ChevronDownIcon/>
                 </DropdownButton>
                 <TeamDropdownMenu/>

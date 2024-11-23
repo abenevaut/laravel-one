@@ -25,14 +25,14 @@ beforeEach(function () {
 it('generate laravel-one web pages', function () {
     $this
         ->artisan('generate', ['url' => 'https://laravel-one.test'])
-        ->expectsOutput('3 pages to generate')
+        ->expectsOutput('4 pages to generate')
         ->assertExitCode(0);
 
     expect('./dist')->toBeWritableDirectory();
     expect('./.cache')->toBeWritableDirectory();
 
     $files = array_diff(scandir('./dist'), ['.', '..']);
-    expect(count($files))->toBe(4);
+    expect(count($files))->toBe(5);
 
     $files = array_diff(scandir('./.cache'), ['.', '..']);
     expect(count($files))->toBe(5);
