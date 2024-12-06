@@ -1,0 +1,30 @@
+name: 'laravel-one'
+description: 'Action to generate static web pages'
+inputs:
+  url:
+    description: 'The base URL of the website'
+    required: true
+  php-version:
+    description: 'The PHP version to use'
+    required: false
+outputs:
+  logs:
+    description: "laravel-one output"
+    value: ${{ steps.laravel-one-generation.outputs.logs }}
+runs:
+  using: "composite"
+  steps:
+
+    - name: Initialize PHP ${{env.PHP_VERSION}}
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{env.PHP_VERSION}}
+        tools: abenevaut/laravel-one
+      env:
+        PHP_VERSION: ${{ inputs.php-version }}
+
+    - name: Generate static pages
+      run: laravel-one generate ${{env.URL}}
+      shell: bash
+      env:
+        URL: ${{ inputs.url }}

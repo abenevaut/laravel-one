@@ -18,7 +18,7 @@ jobs:
     permissions:
       contents: write
     concurrency:
-      group: laravel-one-publish-${{ github.workflow }}-${{ github.ref }}
+      group: laravel-one-publish-binaries-${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: false
     steps:
 
@@ -42,7 +42,7 @@ jobs:
   publish-docs:
     runs-on: ubuntu-latest
     concurrency:
-      group: laravel-one-ghpages-${{ github.workflow }}-${{ github.ref }}
+      group: laravel-one-publish-docs-${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: false
     steps:
 
@@ -61,7 +61,7 @@ jobs:
   publish-pages:
     runs-on: ubuntu-latest
     concurrency:
-      group: laravel-one-ghpages-${{ github.workflow }}-${{ github.ref }}
+      group: laravel-one-publish-pages-${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: false
     steps:
 

@@ -1,5 +1,7 @@
 # laravel-one
 
+![demo](https://raw.githubusercontent.com/abenevaut/laravel-one/refs/heads/master/demo.gif)
+
 [Wiki](https://github.com/abenevaut/laravel-one/wiki)
 
 ## Licensing

@@ -4,7 +4,7 @@
     "keywords": ["laravel-one", "static", "web", "pages", "generator"],
     "homepage": "https://laravel-one.abenevaut.dev",
     "type": "project",
-    "license": "GPL-3.0-only",
+    "license": "MIT",
     "support": {
         "issues": "https://github.com/abenevaut/opensource/issues",
         "source": "https://github.com/abenevaut/opensource"

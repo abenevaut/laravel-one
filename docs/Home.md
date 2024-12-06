@@ -6,28 +6,28 @@ Laravel-one, is a tool to generate static webpages based on [Blade Templates](ht
 ### From latest release
 Laravel-one binary is available on [release page](https://github.com/abenevaut/laravel-one/releases/latest)
 
-  ```bash
-  curl -L -o laravel-one https://github.com/abenevaut/laravel-one/releases/latest/download/laravel-one
-  chmod +x laravel-one
-  ```
+```bash
+curl -L -o laravel-one https://github.com/abenevaut/laravel-one/releases/latest/download/laravel-one
+chmod +x laravel-one
+```
 
 A hash file is available to check the integrity of the binary.
 
-  ```bash
-  curl -L -o laravel-one https://github.com/abenevaut/laravel-one/releases/latest/download/laravel-one.sha512sum
-  sha512sum -c laravel-one.sha512sum
-  ```
+```bash
+curl -L -o laravel-one https://github.com/abenevaut/laravel-one/releases/latest/download/laravel-one.sha512sum
+sha512sum -c laravel-one.sha512sum
+```
 
 ### From composer
-Or, you can install the tool locally or globally with composer, depending your usage.
+Or, you can install the tool locally or globally with composer, depending on your usage.
 
-  ```bash
-  composer require abenevaut/laravel-one
-  ```
+```bash
+composer require abenevaut/laravel-one
+```
 
-  ```bash
-  composer global require abenevaut/laravel-one
-  ```
+```bash
+composer global require abenevaut/laravel-one
+```
 
 - [Packagist](https://packagist.org/packages/abenevaut/laravel-one)
 
