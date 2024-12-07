@@ -1,5 +1,8 @@
-name: 'laravel-one'
+name: 'laravel-one-generate'
 description: 'Action to generate static web pages'
+branding:
+  icon: 'file'
+  color: 'blue'
 inputs:
   url:
     description: 'The base URL of the website'
