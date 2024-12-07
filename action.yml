@@ -7,10 +7,6 @@ inputs:
   php-version:
     description: 'The PHP version to use'
     required: false
-outputs:
-  logs:
-    description: "laravel-one output"
-    value: ${{ steps.laravel-one-generation.outputs.logs }}
 runs:
   using: "composite"
   steps:

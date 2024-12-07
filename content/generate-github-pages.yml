@@ -12,7 +12,46 @@ seo:
 article: |+
   # Generate GitHub pages
 
-  ## Action
+  ## With laravel-one GitHub Action
+  ```bash
+  name: github-pages-release
+
+  on:
+   release:
+     types: [ published ]
+
+  env:
+   php_version: 8.3
+
+  jobs:
+
+   release:
+     runs-on: ubuntu-latest
+     concurrency:
+       group: github-pages-release
+       cancel-in-progress: false
+     permissions:
+       contents: write
+     steps:
+
+       - name: Checkout project
+         uses: actions/checkout@v4
+         with:
+           fetch-depth: 0
+
+       - name: Generate static pages
+         uses: abenevaut/laravel-one@0.5.0
+         with:
+           url: https://www.your-website.com
+           php-version: ${{ env.php_version }}
+
+       - uses: JamesIves/github-pages-deploy-action@v4
+         with:
+           BRANCH: gh-pages
+           FOLDER: dist
+  ```
+
+  ## With your custom Pipeline
   ```bash
   name: github-pages-release
 
