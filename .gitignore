@@ -8,3 +8,4 @@
 phpunit.xml.test
 phpunit.xml
 .phpunit.result.cache
+xdebug-errors.log

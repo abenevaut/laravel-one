@@ -2,7 +2,7 @@
 
 namespace App\Commands;
 
-use abenevaut\Infrastructure\Console\ProcessPoolCommandAbstract;
+use abenevaut\Infrastructure\Console\Commands\ProcessPoolCommandAbstract;
 use App\Domain\Pages\Sitemaps\Services\Sitemap;
 use App\GeneratorSettings;
 use App\Pipes\FindOrCreateCacheDirectoryPipe;
